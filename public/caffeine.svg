@@ -1,0 +1,48 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Six-membered ring (pyrimidine) - left side -->
+  <path d="M 20 50 
+           L 30 40 
+           L 45 40 
+           L 55 50 
+           L 45 60 
+           L 30 60 Z" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Five-membered ring (imidazole) - right side, fused -->
+  <path d="M 45 40 
+           L 60 35 
+           L 70 45 
+           L 65 60 
+           L 45 60" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Double bond in six-membered ring (top horizontal) -->
+  <line x1="30" y1="40" x2="45" y2="40" stroke="currentColor" stroke-width="2.5"/>
+  <line x1="30" y1="38" x2="45" y2="38" stroke="currentColor" stroke-width="1.8"/>
+  
+  <!-- Double bond in fused region (vertical shared bond) -->
+  <line x1="45" y1="40" x2="45" y2="60" stroke="currentColor" stroke-width="2.5"/>
+  <line x1="47" y1="40" x2="47" y2="60" stroke="currentColor" stroke-width="1.8"/>
+  
+  <!-- Double bond in five-membered ring (diagonal) -->
+  <line x1="60" y1="35" x2="70" y2="45" stroke="currentColor" stroke-width="2.5"/>
+  <line x1="59" y1="36" x2="69" y2="46" stroke="currentColor" stroke-width="1.8"/>
+  
+  <!-- Substituents - solid circles (CH3 methyl groups) -->
+  <circle cx="30" cy="30" r="3.5" fill="currentColor"/>
+  <circle cx="15" cy="50" r="3.5" fill="currentColor"/>
+  <circle cx="75" cy="42" r="3.5" fill="currentColor"/>
+  
+  <!-- Substituents - hollow circles (O atoms) -->
+  <circle cx="15" cy="40" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/>
+  <circle cx="15" cy="60" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/>
+</svg>
+

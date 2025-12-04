@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condown - Video Converter & YouTube Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Condown</h1>
+            <p>Video Converter & YouTube Downloader</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="youtube">YouTube Downloader</button>
+            <button class="tab-button" data-tab="convert">Video Converter</button>
+        </div>
+
+        
+        <div class="tab-content active" id="youtube-tab">
+            <div class="card">
+                <h2>Download from YouTube</h2>
+                <form id="youtube-form">
+                    <div class="form-group">
+                        <label for="youtube-url">YouTube URL</label>
+                        <input type="url" id="youtube-url" name="url" placeholder="https:
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="youtube-quality">Quality</label>
+                            <select id="youtube-quality" name="quality" required>
+                                <option value="1080p">1080p (Full HD)</option>
+                                <option value="2K">1440p (2K)</option>
+                                <option value="4K">2160p (4K)</option>
+                                <option value="best" selected>Best available</option>
+                                <option value="audio">Audio only</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="youtube-format">Format</label>
+                            <select id="youtube-format" name="format" required>
+                                <option value="MP4" selected>MP4</option>
+                                <option value="WebM">WebM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="youtube-output">Output Directory</label>
+                        <div class="directory-selector">
+                            <select id="youtube-output-select" class="directory-select">
+                                <option value="">downloads (default)</option>
+                                <option value="downloads">downloads</option>
+                                <option value="output">output</option>
+                                <option value="downloads/youtube">downloads/youtube</option>
+                                <option value="downloads/videos">downloads/videos</option>
+                                <option value="downloads/audio">downloads/audio</option>
+                                <option value="custom">Custom path...</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary btn-browse" id="youtube-browse-btn" title="Browse directories">
+                                📁 Browse
+                            </button>
+                        </div>
+                        <input type="text" id="youtube-output" name="output" placeholder="Enter custom path..." 
+                               pattern="^[a-zA-Z0-9_/\-]+$" 
+                               style="display: none; margin-top: 8px;"
+                               title="Only letters, numbers, underscores, hyphens, and forward slashes allowed">
+                        <small>Select a directory or enter a custom path. Leave empty for default "downloads" folder.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="youtube-submit">
+                        <span class="btn-text">Download Video</span>
+                        <span class="btn-loader" style="display: none;">Downloading...</span>
+                    </button>
+                </form>
+
+                <div id="youtube-info" class="video-info" style="display: none;">
+                    <h3>Video Information</h3>
+                    <div id="youtube-info-content"></div>
+                </div>
+
+                <div id="youtube-progress" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="youtube-progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="youtube-progress-text">Preparing download...</p>
+                </div>
+
+                <div id="youtube-result" class="result" style="display: none;"></div>
+            </div>
+        </div>
+
+        
+        <div class="tab-content" id="convert-tab">
+            <div class="card">
+                <h2>Convert Video File</h2>
+                <form id="convert-form">
+                    <div class="form-group">
+                        <label for="video-file">Select Video File</label>
+                        <div class="file-input-wrapper">
