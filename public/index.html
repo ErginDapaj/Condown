@@ -18,7 +18,6 @@
             <button class="tab-button" data-tab="convert">Video Converter</button>
         </div>
 
-        
         <div class="tab-content active" id="youtube-tab">
             <div class="card">
                 <h2>Download from YouTube</h2>
@@ -94,7 +93,6 @@
             </div>
         </div>
 
-        
         <div class="tab-content" id="convert-tab">
             <div class="card">
                 <h2>Convert Video File</h2>
@@ -102,3 +100,86 @@
                     <div class="form-group">
                         <label for="video-file">Select Video File</label>
                         <div class="file-input-wrapper">
+                            <input type="file" id="video-file" name="video" accept="video/*" required>
+                            <label for="video-file" class="file-input-label">
+                                <span>📁</span> Choose Video File
+                            </label>
+                        </div>
+                        <small>Supported: MP4, AVI, MKV, WebM, MOV, FLV, WMV, M4V, 3GP</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="convert-format">Output Format</label>
+                            <select id="convert-format" name="format" required>
+                                <option value="MP4" selected>MP4</option>
+                                <option value="AVI">AVI</option>
+                                <option value="MKV">MKV</option>
+                                <option value="WebM">WebM</option>
+                                <option value="MOV">MOV</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="convert-quality">Quality</label>
+                            <select id="convert-quality" name="quality" required>
+                                <option value="original" selected>Keep original</option>
+                                <option value="1080p">1080p (Full HD)</option>
+                                <option value="720p">720p (HD)</option>
+                                <option value="480p">480p (SD)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="convert-output">Output Directory</label>
+                        <div class="directory-selector">
+                            <select id="convert-output-select" class="directory-select">
+                                <option value="">output (default)</option>
+                                <option value="output">output</option>
+                                <option value="downloads">downloads</option>
+                                <option value="output/converted">output/converted</option>
+                                <option value="output/videos">output/videos</option>
+                                <option value="custom">Custom path...</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary btn-browse" id="convert-browse-btn" title="Browse directories">
+                                📁 Browse
+                            </button>
+                        </div>
+                        <input type="text" id="convert-output" name="output" placeholder="Enter custom path..." 
+                               pattern="^[a-zA-Z0-9_/\-]+$" 
+                               style="display: none; margin-top: 8px;"
+                               title="Only letters, numbers, underscores, hyphens, and forward slashes allowed">
+                        <small>Select a directory or enter a custom path. Leave empty for default "output" folder.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="convert-submit">
+                        <span class="btn-text">Convert Video</span>
+                        <span class="btn-loader" style="display: none;">Converting...</span>
+                    </button>
+                </form>
+
+                <div id="convert-progress" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="convert-progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="convert-progress-text">Preparing conversion...</p>
+                </div>
+
+                <div id="convert-result" class="result" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made with <span class="heart">♥</span> by Grainger</p>
+    </footer>
+
+    <div class="caffeine-structure">
+        <img src="caffeine.svg" alt="Caffeine" class="caffeine-icon">
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

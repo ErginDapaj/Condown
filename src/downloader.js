@@ -325,4 +325,3 @@ export function getQualityOptions() {
 export function getFormatOptions() {
   return ['MP4', 'WebM'];
 }
-}
